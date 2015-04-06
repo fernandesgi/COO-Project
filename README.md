@@ -2,18 +2,13 @@
 
 [PROJETO]
 
-  Para aplicarmos os conceitos de orientação a objetos vistos em aula, implementaremos
-um sistema de biblioteca compartilhada. A ideia geral é
-gerenciar o empréstimo de livros entre pessoas de um grupo que possuem
-interesses em comum e que frequentem um mesmo local. Por exemplo, o
-grupo dos alunos do curso de Sistemas de Informação da EACH-USP. Cada
-usuário terá a responsabilidade de cadastrar no sistema os livros que deseja
-colocar à disposição para empréstimo e, além disso, poderá solicitar empréstimos
-aos outros usuários. Suporemos que existirá uma entidade (subgrupo)
-responsável por fazer a mediação entre os usuários nos instantes de entrega
-e devolução. No exemplo mencionado, o papel do mediador poderia ser desempenhado
-por alguns membros do centro acadêmico. O fluxo normal de
-um empréstimo será o seguinte: 
+  Para aplicarmos os conceitos de orientação a objetos vistos em aula, implementaremos um sistema de biblioteca compartilhada. A ideia geral é gerenciar o empréstimo de livros entre pessoas de um grupo que possuem
+interesses em comum e que frequentem um mesmo local. Por exemplo, o grupo dos alunos do curso de Sistemas de Informação da EACH-USP. Cada usuário terá a responsabilidade de cadastrar no sistema os livros que deseja colocar à disposição para empréstimo e, além disso, poderá solicitar empréstimos aos outros usuários.
+
+  Suporemos que existirá uma entidade (subgrupo) responsável por fazer a mediação entre os usuários nos instantes de entrega
+e devolução. No exemplo mencionado, o papel do mediador poderia ser desempenhado por alguns membros do centro acadêmico.
+
+O fluxo normal de um empréstimo será o seguinte: 
 
 (1) um usuário solicita, através do sistema, o empréstimo de um livro; 
 
