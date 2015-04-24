@@ -28,6 +28,17 @@ O fluxo normal de um empréstimo será o seguinte:
 
 (9) o proprietário que indicou que emprestaria o livro pode não entregá-lo ao mediador; etc...
 
+[TODO]
+
+• Um documento (feito a mão ou utilizando algum software de desenho) contendo o protótipo de todas as telas do sistema, bem como um mapa de navegação indicando todos os possíveis ﬂuxos entre as telas;
+
+• O código-fonte em java correspondente às classes que representam as entidades do sistema (exemplo: usuário, empréstimo, livro, etc...);
+
+• O código-fonte em java que faz acesso à camada de persistência de dados utilizando JDBC. Devem ser utilizados os padrões de projeto Data Access Object e Factory;
+
+• Um relatório descrevendo qual foi a participação de cada membro do grupo no trabalho realizado.
+
+
 [EMPRESTIMO]
 
   Fazer um sitemas que funciona como uma biblioteca, você procura o livro e ve quantos exemplares tem no sistema e quando alguem quiser emprestar, aparece o perfil dessa pessoa e voce pode aceitar ou nao.
