@@ -7,10 +7,9 @@ public class Livro implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	private String titulo;
-	private String autor; // deveria ser uma lista de autores
-	private String editora; // deveria ser um objeto Editora contendo infos da editora
-	private int idUsuario; //TODO implementar o exemplar <<
-							// O livro so ira ser criado quando um usuario adicionar ele
+	private String autor; 
+	private String editora;
+	private int idUsuario;  // O livro so ira ser criado quando um usuario adicionar ele
 	
 	// Construtores
 	public Livro(String titulo, String autor, String editora, Usuario usuario) {

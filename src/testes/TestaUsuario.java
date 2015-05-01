@@ -2,7 +2,7 @@ package testes;
 
 import java.util.List;
 
-import dao.MediadorDao;
+import dao.EmprestimoDao;
 import dao.UsuarioDao;
 import entidades.Livro;
 import entidades.Usuario;
@@ -25,9 +25,9 @@ public class TestaUsuario {
 		Livro livro1 = new Livro("Hunger Jogos", "fila","Abril",1);
 		//usuario2.solicita(livro);
 		//usuario2.solicita(livro1);
-		MediadorDao md = new MediadorDao();
+		EmprestimoDao ed = new EmprestimoDao();
 		//md.remove(usuario2, livro);
-		List<Integer> lista =  md.solicitacoesPorUsuario(usuario);
+		List<Integer> lista =  ed.solicitacoesPorUsuario(usuario);
 		for (Integer i : lista) {
 			System.out.print(i + " , ");
 		}

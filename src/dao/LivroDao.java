@@ -198,7 +198,7 @@ public class LivroDao {
 	}
 	
 	// Lista todos Usuarios que possuem o livro 
-	public static List<Integer> listaTodosPorUsuario(Livro livro){
+	public List<Integer> listaTodosPorUsuario(Livro livro){
 		Connection connection = JDBCConnectionFactory.getConnection();
 		PreparedStatement stmt;
 		LinkedList<Integer> usuarios = new LinkedList<Integer>();

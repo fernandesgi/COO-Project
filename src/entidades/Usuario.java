@@ -1,9 +1,5 @@
 package entidades;
 
-import java.util.List;
-
-import dao.LivroDao;
-import dao.MediadorDao;
 import dao.UsuarioDao;
 
 public class Usuario {
@@ -13,7 +9,7 @@ public class Usuario {
 	private String password; // TODO fazer o email ser login e o login
 	private String nome;
 	private String sobrenome;
-	private double credibilidade; //TODO implementar de 0 a 10
+	private double credibilidade; 
 	//private Calendar dataNascimento;
 	
 	// Construtor
@@ -59,39 +55,11 @@ public class Usuario {
 		return credibilidade;
 	}
 
-	// Será chamado quando estiver na tela do Livro ja encontrado no sistema
-	public void solicita(Livro livro){
-		//LivroDao ld = new LivroDao();
-		//ld.listaTodosPorUsuario(livro);
-		enviaSolicitacao(livro); //faz a solicitacao pra todos que possuem o livro
-		//TODO avisa todos que possuem os livro da solicitação
-		//TODO se alguem aceitar, avisar o solicitador
+	// solicita o emprestimo
+	public void solicitaLivro(Livro livro){
+		Emprestimo emprestimo = new Emprestimo();
+		emprestimo.solicita(livro, this);
 	}
-	
-	private void enviaSolicitacao(Livro livro){
-		LivroDao ld = new LivroDao();
-		MediadorDao md = new MediadorDao();
-		List<Integer> lista= ld.listaTodosPorUsuario(livro);
-		for (Integer i : lista) {
-			// Salvo no BD a solicitacao
-			md.adiciona(livro, i, this);
-		}
-	}
-		
-	//retorna true se quiser emprestar e false se n quiser
-	public boolean emprestar(Livro livro){
-		return false;
-	}
-
-	private void mostarSolicitacoes(Usuario usuario){
-		MediadorDao md = new MediadorDao();
-		List<Integer> lista = md.solicitacoesPorUsuario(usuario);
-		for (Integer i : lista) {
-			System.out.print(i + " "); //TODO criar metodo de busca por id que retorna titulo
-		}
-		//fazer metodo para aceitar o titulo escolhido
-		
-	}		
 	
 	@Override
 	public String toString() {
