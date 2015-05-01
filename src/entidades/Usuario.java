@@ -1,9 +1,11 @@
 package entidades;
 
+import dao.LivroDao;
 import dao.UsuarioDao;
 
 public class Usuario {
-	
+	//TODO Apagar os getters e setters desnecesarios 
+	//TODO IMPRIMIR O LOG DO BANCO DE DADOS
 	private int idUsuario; // eh unico de cada usuario
 	private String login; // tem que ser email
 	private String password; // TODO fazer o email ser login e o login
@@ -54,11 +56,40 @@ public class Usuario {
 	public double getCredibilidade() {
 		return credibilidade;
 	}
-
+	
+	// Adiciona Livro no Banco de Dados
+	private void adicionaLivro(String titulo, String autor, String editora){
+		Livro livro = new Livro(titulo,autor,editora,getIdUsuario());
+		LivroDao ld = new LivroDao();
+		ld.adiciona(livro);
+	}
+	
+	// Remove Livro no Banco de Dados
+	private void removeLivro(String titulo, String autor, String editora){
+		Livro livro = new Livro(titulo,autor,editora,getIdUsuario());
+		LivroDao ld = new LivroDao();
+		ld.remove(livro);
+	}
 	// solicita o emprestimo
-	public void solicitaLivro(Livro livro){
+	private void solicitaLivro(Livro livro){
 		Emprestimo emprestimo = new Emprestimo();
 		emprestimo.solicita(livro, this);
+	}
+	
+	// Cria um usuario
+	private void adicionaUsuario(){
+		UsuarioDao ud = new UsuarioDao();
+		if (verificaCriacaoLogin(this.login) == true) ud.adiciona(this);
+		else throw new IllegalArgumentException("Login deve ser um email");
+	}
+	
+	// Verifica se login == email
+	private boolean verificaCriacaoLogin(String login){
+		char[] c = login.toCharArray();
+        for (int i = 0; i < c.length; i++){
+        	if(c[i] == '@') return true;
+        }
+		return false;
 	}
 	
 	@Override
@@ -67,6 +98,5 @@ public class Usuario {
 				+ " Nome: " + this.nome + " Sobrenome: " + this.sobrenome;
 	}
 
-	//TODO metodo adicionaLivro
 
 }

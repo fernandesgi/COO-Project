@@ -47,19 +47,19 @@ public class Emprestimo {
 	}
 	
 	// Aceita o emprestimo
-	private void aceitarEmprestimo(Integer idSolicitacao){
+	public void aceitarEmprestimo(Integer idSolicitacao){
 		MediadorDao md = new MediadorDao();
 		md.emprestimoAceitado(idSolicitacao); // salva a solicitacao como "aceita" no BD
 		//TODO Envia uma mensagem para quem solicitou avisando que o livro foi aceitado
-		// Criar mediadorDao para mudar o emprestado TRUE
+		Livro livro = md.achaLivro(idSolicitacao);
+		md.estaEmprestado(livro); // altera o status do livro para emprestado
 		
 	}
 	
+	
 	// Recusa o emprestimo
-	private void recusarEmprestimo(Integer idSolicitacao){
+	public void recusarEmprestimo(Integer idSolicitacao){
 		MediadorDao md = new MediadorDao();
 		md.emprestimoRecusado(idSolicitacao); // recusa e apaga a solicitacao no BD
 	}
-	
-	
 }
