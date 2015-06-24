@@ -49,7 +49,6 @@ public class LoginController {
 	}	
 
 	public void autentica(Usuario usuario) {
-
 		try {
 			gerenciadorDeAutenticacoes.autenticaUsuarioComum(usuario);
 			usuarioSession.login(usuario);
