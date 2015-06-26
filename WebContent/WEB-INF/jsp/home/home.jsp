@@ -20,15 +20,15 @@
 <body>
 	<div class="row">
 		<div class="col-sm-6 col-sm-offset-3">
-			<a href="configuracoes" type="button" class="btn btn-login">Adicionar Livro</a>
+			<a href="adicionaLivro" type="button" class="btn btn-login">Adicionar Livro</a>
 		</div>
 
 		<div class="col-sm-6 col-sm-offset-3">
-			<a href="configuracoes" type="button" class="btn btn-login">Buscar Livro</a>
+			<a href="buscaLivro" type="button" class="btn btn-login">Buscar Livro</a>
 		</div>
 
 		<div class="col-sm-6 col-sm-offset-3">
-			<a href="configuracoes" type="button" class="btn btn-login">Ver Meus Livros</a>
+			<a href="meusLivros" type="button" class="btn btn-login">Ver Meus Livros</a>
 		</div>
 
 		<div class="col-sm-6 col-sm-offset-3">

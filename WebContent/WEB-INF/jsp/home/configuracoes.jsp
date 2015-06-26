@@ -18,20 +18,11 @@
 <title>Configuracoes</title>
 </head>
 <body>
-	<div class="form-group">
-		<div class="row">
-			<div class="col-sm-6 col-sm-offset-3">
-				<input type="submit" name="alterar-account" id="alterar-account"
-					tabindex="4" class="form-control btn btn-info" value="Alterar Conta">
-			</div>
-		</div>
+	<div class="col-sm-6 col-sm-offset-3">
+		<a href="alteraConta" type="button" class="form-control btn btn-info">Alterar Conta</a>
 	</div>
-	<div class="form-group">
-		<div class="row">
-			<div class="col-sm-6 col-sm-offset-3">
-				<input type="submit" name="delete-account" id="delete-account" tabindex="4" class="form-control btn btn-danger" value="Deletar Conta">
-			</div>
-		</div>
+	<div class="col-sm-6 col-sm-offset-3">
+		<a href="deletaConta" type="button" class="form-control btn btn-danger">Deleta Conta</a>
 	</div>
 </body>
 </html>

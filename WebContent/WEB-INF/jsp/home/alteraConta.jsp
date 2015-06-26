@@ -10,21 +10,23 @@
 <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/bootstrap/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/bootstrap/js/index.js"></script>
-<title>Adiciona Livro</title>
+<title>Altera Conta</title>
 </head>
 <body>
-	<div class="form-group">
-		<input type="text" name="livro.ISBN" id="username" tabindex="1" class="form-control" placeholder="ISBN" value="" required>
-	</div>
-	<div class="form-group">
-		<input type="text" name="livro.estado" id="username" tabindex="1" class="form-control" placeholder="Estado do Livro" value="" required>
-	</div>
-	<div class="form-group">
-		<div class="row">
-			<div class="col-sm-6 col-sm-offset-3">
-				<input type="submit" name="livro-register" id="livro-register" tabindex="4" class="form-control btn btn-warning" value="Adicionar Livro">
+	<form id="change-form" action="configuracoes?sucesso" method="post" role="form">
+		<div class="form-group">
+			<input type="password" name="usuario.password" id="password" tabindex="2" class="form-control" placeholder="Senha" required>
+		</div>
+		<div class="form-group">
+			<input type="password" name="usuario.password" id="password" tabindex="2" class="form-control" placeholder="Confirme a Senha" required>
+		</div>
+		<div class="form-group">
+			<div class="row">
+				<div class="col-sm-6 col-sm-offset-3">
+					<input type="submit" name="alterar" id="alterar" tabindex="4" class="form-control btn btn-register" value="Alterar">
+				</div>
 			</div>
 		</div>
-	</div>
+	</form>
 </body>
 </html>

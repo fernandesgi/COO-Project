@@ -10,21 +10,11 @@
 <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/bootstrap/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/bootstrap/js/index.js"></script>
-<title>Adiciona Livro</title>
+<title>Meus Livros</title>
 </head>
 <body>
-	<div class="form-group">
-		<input type="text" name="livro.ISBN" id="username" tabindex="1" class="form-control" placeholder="ISBN" value="" required>
-	</div>
-	<div class="form-group">
-		<input type="text" name="livro.estado" id="username" tabindex="1" class="form-control" placeholder="Estado do Livro" value="" required>
-	</div>
-	<div class="form-group">
-		<div class="row">
-			<div class="col-sm-6 col-sm-offset-3">
-				<input type="submit" name="livro-register" id="livro-register" tabindex="4" class="form-control btn btn-warning" value="Adicionar Livro">
-			</div>
-		</div>
+	<div class="col-sm-6 col-sm-offset-3">
+		<a href="home" type="button" class="btn btn-login">Voltar</a>
 	</div>
 </body>
 </html>
