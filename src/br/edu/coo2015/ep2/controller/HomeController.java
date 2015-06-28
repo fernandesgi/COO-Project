@@ -22,8 +22,8 @@ public class HomeController {
 	
 	public void adicionaLivro(Livro livro){
 		System.out.println("Titulo: " + livro.getTitulo());
-		LivroDao livroDao = new LivroDao();
-		livroDao.adiciona(livro);
+		//LivroDao livroDao = new LivroDao();
+		//livroDao.adiciona(livro);
 	}
 	
 	public void configuracoes(){

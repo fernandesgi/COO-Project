@@ -1,5 +1,6 @@
 package br.edu.coo2015.ep2.controller;
 
+import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
 import br.edu.coo2015.ep2.dao.UsuarioDao;
 import br.edu.coo2015.ep2.entity.Usuario;
@@ -7,6 +8,7 @@ import br.edu.coo2015.ep2.model.AutenticacaoException;
 import br.edu.coo2015.ep2.model.BibliotecaCompartilhadaFacade;
 import br.edu.coo2015.ep2.model.GerenciadorDeAutenticacoes;
 
+@Resource
 public class ConfiguracoesController {
 
 	private final Result result;
@@ -27,25 +29,32 @@ public class ConfiguracoesController {
 		this.bibliotecaCompartilhadaFacade = bibliotecaCompartilhadaFacade;
 	}
 	
-	public void alteraConta(){
+	public void alteraConta(Usuario usuario){
+		System.out.println("Usuario: " + usuario.getLogin() + "Senha: " + usuario.getPassword());
+		try{
+			gerenciadorDeAutenticacoes.autenticaUsuarioComum(usuario);
+			UsuarioDao usuarioDao = new UsuarioDao();
+			//usuarioDao.remove(usuario);
+			result.redirectTo(new HomeController()).home();
+		} catch (AutenticacaoException e) {
+			result.redirectTo(new HomeController()).configuracoes();
+		}
+	}
+	
+	public void deletaConta(){
 		
 	}
 	
-	public void deletaConta(Usuario usuario){
+	public void deletaContaSucesso(Usuario usuario){
 		System.out.println("Usuario: " + usuario.getLogin() + "Senha: " + usuario.getPassword());
 		
 		try{
 			gerenciadorDeAutenticacoes.autenticaUsuarioComum(usuario);
-			usuarioSession.login(usuario);
-			result.redirectTo(new HomeController()).home();
+			UsuarioDao usuarioDao = new UsuarioDao();
+			usuarioDao.remove(usuario);
+			result.redirectTo(new IndexController(null, null, null, null)).index();
 		} catch (AutenticacaoException e) {
-			// No redirectTo, o request eh perdido (eh iniciado um novo)
-			// No forwardTo o request eh passado para frente
-			usuarioSession.logout();
 			result.redirectTo(new HomeController()).configuracoes();
 		}
-		
-		UsuarioDao usuarioDao = new UsuarioDao();
-		usuarioDao.remove(usuario);
 	}
 }
