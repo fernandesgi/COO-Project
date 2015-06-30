@@ -43,5 +43,11 @@ public class UsuarioDaoHibernate implements Serializable  {
 		session.delete(busca(usuario));
 		tx.commit();
 	}
+	
+	public void update(Usuario usuario) {
+		Transaction tx = session.beginTransaction();
+		session.update(usuario);
+		tx.commit();
+	}
 
 }

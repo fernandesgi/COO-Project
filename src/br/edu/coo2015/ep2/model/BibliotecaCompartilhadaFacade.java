@@ -2,7 +2,6 @@ package br.edu.coo2015.ep2.model;
 
 import java.util.List;
 
-import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.ioc.Component;
 import br.edu.coo2015.ep2.dao.LivroDaoHibernate;
 import br.edu.coo2015.ep2.entity.Livro;

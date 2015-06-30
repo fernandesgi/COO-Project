@@ -13,7 +13,7 @@
 <script type="text/javascript"
 	src="${pageContext.request.contextPath}/bootstrap/js/bootstrap.min.js"></script>
 
-<title>Home</title>
+<title>Ver todos os livros</title>
 </head>
 <body>
 	<div class="row">

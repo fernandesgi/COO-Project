@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>	
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -15,10 +16,13 @@
 <body>
 	<form id="change-form" action="configuracoes?sucesso" method="post" role="form">
 		<div class="form-group">
-			<input type="password" name="usuario.password" id="password" tabindex="2" class="form-control" placeholder="Senha" required>
+			<input type="password" name="senha" id="password" tabindex="1" class="form-control" placeholder="Senha atual" required>
 		</div>
 		<div class="form-group">
-			<input type="password" name="usuario.password" id="password" tabindex="2" class="form-control" placeholder="Confirme a Senha" required>
+			<input type="password" name="nova" id="password" tabindex="2" class="form-control" placeholder="Nova senha" required>
+		</div>
+		<div class="form-group">
+			<input type="password" name="confirmation" id="confirmpassword" tabindex="3" class="form-control" placeholder="Confirme a nova Senha" required>
 		</div>
 		<div class="form-group">
 			<div class="row">

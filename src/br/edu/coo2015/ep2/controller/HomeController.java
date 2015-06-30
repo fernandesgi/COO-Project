@@ -36,10 +36,9 @@ public class HomeController {
 		result.redirectTo("adicionaLivro?success");
 	}
 	
-	public void configuracoes(){
-	}
-	
 	public void meusLivros(){
+		List<Livro> list = (List<Livro>) bibliotecaCompartilhadaFacade.listaTodosLivros();
+		result.include("livros", list);
 	}
 	
 	public void buscaLivro(){

@@ -13,12 +13,12 @@
 <title>Deleta Conta</title>
 </head>
 <body>
-<form id="delete-form" action="index" method="post" role="form">
+<form id="delete-form" action="../index/index" method="post" role="form">
 		<div class="form-group">
 			<input type="password" name="usuario.password" id="password" tabindex="2" class="form-control" placeholder="Senha" required>
 		</div>
 		<div class="form-group">
-			<input type="password" name="usuario.password" id="password" tabindex="2" class="form-control" placeholder="Confirme a Senha" required>
+			<input type="password" name="confirmation" id="confirmpassword" tabindex="2" class="form-control" placeholder="Confirme a Senha" required>
 		</div>
 		<div class="form-group">
 			<div class="row">

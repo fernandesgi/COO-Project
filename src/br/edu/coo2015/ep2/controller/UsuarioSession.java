@@ -2,6 +2,7 @@ package br.edu.coo2015.ep2.controller;
 
 import br.com.caelum.vraptor.ioc.Component;
 import br.com.caelum.vraptor.ioc.SessionScoped;
+import br.edu.coo2015.ep2.dao.UsuarioDaoHibernate;
 import br.edu.coo2015.ep2.entity.Usuario;
 
 @Component
@@ -15,7 +16,6 @@ public class UsuarioSession {
 	}
 	
 	public void login(Usuario usuario) {
-		usuario = new UsuarioDao().buscaPorLogin(usuario.getLogin());
 		this.usuario = usuario;
 	}
 	

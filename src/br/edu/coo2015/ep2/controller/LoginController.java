@@ -23,8 +23,6 @@ public class LoginController {
 
 	private final GerenciadorDeAutenticacoes gerenciadorDeAutenticacoes;
 
-	//private final BibliotecaCompartilhadaFacade bibliotecaCompartilhadaFacade;
-
 	private final UsuarioDaoHibernate usuarioDaoHibernate;
 
 	private final Validator validator;
@@ -32,15 +30,12 @@ public class LoginController {
 	public LoginController(Validator validator,
 			UsuarioDaoHibernate usuarioDaoHibernate, Result result,
 			UsuarioSession usuarioSession,
-			GerenciadorDeAutenticacoes gerenciadorDeAutenticacoes,
-			BibliotecaCompartilhadaFacade bibliotecaCompartilhadaFacade) {
+			GerenciadorDeAutenticacoes gerenciadorDeAutenticacoes) {
 		this.validator = validator;
 		this.result = result;
 		this.usuarioSession = usuarioSession;
 		this.gerenciadorDeAutenticacoes = gerenciadorDeAutenticacoes;
-		//this.bibliotecaCompartilhadaFacade = bibliotecaCompartilhadaFacade;
 		this.usuarioDaoHibernate = usuarioDaoHibernate;
-		//bibliotecaCompartilhadaFacade.setLivroDao(this.livroDaoHibernate);
 	}
 
 	public void login() {
@@ -50,26 +45,20 @@ public class LoginController {
 		try {
 			usuario = gerenciadorDeAutenticacoes.autenticaUsuarioComum(usuario);
 			usuarioSession.login(usuario);
-			result.redirectTo(this).logadoComSucesso();
+			result.redirectTo(HomeController.class).home();
 		} catch (AutenticacaoException e) {
 			usuarioSession.logout();
-			result.redirectTo("index?error");
+			result.redirectTo("login?error");
 		}
 	}
 	
-	public void logadoComSucesso() {
-		result.include("nome", usuarioSession.getUsuarioLogado().getNome());
-	}
-
-	public void problemaNaAutenticacao(String mensagem) {
-		result.include("mensagem", mensagem);
-	}
-
-	public void listaLivros() {
-		//result.include("livros",bibliotecaCompartilhadaFacade.listaTodosLivros());
-	}
-	
-	public void mostraMensagem(String msg) {
-		result.include("msg", msg);
+	public void registra(Usuario usuario){
+		try {
+			usuarioDaoHibernate.adiciona(usuario);
+			result.redirectTo("index?success");
+		} catch (Exception e) {
+			// TODO
+			result.redirectTo("index?erroEmail");
+		}
 	}
 }
