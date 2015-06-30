@@ -13,6 +13,7 @@ import br.edu.coo2015.ep2.entity.Usuario;
 import br.edu.coo2015.ep2.model.AutenticacaoException;
 import br.edu.coo2015.ep2.model.BibliotecaCompartilhadaFacade;
 import br.edu.coo2015.ep2.model.GerenciadorDeAutenticacoes;
+import br.edu.coo2015.ep2.security.RestritoUsuarioCadastrado;
 
 @Resource // Indica o VRaptor que essa classe deve ser controlada por ele
 public class LoginController {
@@ -37,10 +38,12 @@ public class LoginController {
 		this.gerenciadorDeAutenticacoes = gerenciadorDeAutenticacoes;
 		this.usuarioDaoHibernate = usuarioDaoHibernate;
 	}
-
+	
+	@RestritoUsuarioCadastrado
 	public void login() {
 	}	
-
+	
+	@RestritoUsuarioCadastrado
 	public void autentica(Usuario usuario) {
 		try {
 			usuario = gerenciadorDeAutenticacoes.autenticaUsuarioComum(usuario);

@@ -15,11 +15,11 @@ import br.edu.coo2015.ep2.controller.UsuarioSession;
 public class AutorizacaoInterceptor implements Interceptor, Serializable {
 
 	private static final long serialVersionUID = 1L;
-	private final UsuarioSession usuario;
+	private final UsuarioSession usuarioSession;
 	private final Result result;
 
-	public AutorizacaoInterceptor(UsuarioSession usuario, Result result) {
-		this.usuario = usuario;
+	public AutorizacaoInterceptor(UsuarioSession usuarioSession, Result result) {
+		this.usuarioSession = usuarioSession;
 		this.result = result;
 	}
 
@@ -28,17 +28,15 @@ public class AutorizacaoInterceptor implements Interceptor, Serializable {
 	}
 
 	public boolean accepts(ResourceMethod method) {
-		if (!usuario.estaLogado() && ehRestrito(method)) {
+		if (usuarioSession.estaLogado() && ehRestrito(method)) {
 			return true;
 		}
-
 		return false;
 	}
 
 	public void intercept(InterceptorStack stack, ResourceMethod method,
 			Object resourceInstance) throws InterceptionException {
 		result.redirectTo(LoginController.class)
-				.mostraMensagem(
-						"Para acessar esse conteudo, o usuario precisa estar logado no sistema.");
+				.login();
 	}
 }

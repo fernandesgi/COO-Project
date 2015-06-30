@@ -12,7 +12,8 @@ public class UsuarioSession {
 	private Usuario usuario;
 	
 	public boolean estaLogado(){
-		return usuario != null;
+		boolean logado = (usuario == null);
+		return logado;
 	}
 	
 	public void login(Usuario usuario) {
