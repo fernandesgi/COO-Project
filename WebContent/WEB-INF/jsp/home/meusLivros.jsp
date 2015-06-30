@@ -13,6 +13,25 @@
 <title>Meus Livros</title>
 </head>
 <body>
+	<center>
+		<table border=1>
+			<tr>
+				<td><b>Autor</b></td>
+				<td><b>Título</b></td>
+			</tr>
+
+			<c:forEach items="${livros}" var="livro">
+				<tr>
+					<td>${livro.autor}</td>
+					<td>${livro.titulo}</td>
+				</tr>
+			</c:forEach>
+		</table>
+	</center>
+
+	<div class="col-sm-6 col-sm-offset-3">
+		<a href="deletaLivro" type="button" class="btn btn-danger">Deletar Livro</a>
+	</div>
 	<div class="col-sm-6 col-sm-offset-3">
 		<a href="home" type="button" class="btn btn-login">Voltar</a>
 	</div>

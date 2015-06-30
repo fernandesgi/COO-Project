@@ -2,7 +2,6 @@ package br.edu.coo2015.ep2.entity;
 
 import java.util.List;
 
-import br.edu.coo2015.ep2.dao.EmprestimoDao;
 import br.edu.coo2015.ep2.dao.LivroDao;
 import br.edu.coo2015.ep2.dao.MediadorDao;
 
@@ -19,13 +18,7 @@ public class Emprestimo {
 	
 	// Salva no BD a solicitacao pra todos que possuem o livro
 	private void enviaSolicitacao(Livro livro, Usuario usuario){
-		LivroDao ld = new LivroDao();
-		EmprestimoDao ed = new EmprestimoDao();
-		List<Integer> lista= ld.listaTodosPorUsuario(livro);
-		for (Integer i : lista) {
-			ed.adiciona(livro, i, usuario); // Salvo no BD a solicitacao
-			notificacao(usuario);
-		}
+		
 	}
 	
 	//TODO Notifica o usuario de que ele possui uma solicitacao
@@ -36,11 +29,7 @@ public class Emprestimo {
 
 	// Mostra todas solicitacoes que o usuario possui
 	public void mostrarSolicitacoes(Usuario usuario){
-		EmprestimoDao ed = new EmprestimoDao();
-		List<Integer> lista = ed.solicitacoesPorUsuario(usuario);
-		for (Integer i : lista) {
-			System.out.print(i + " "); //TODO criar metodo de busca por id que retorna titulo
-		}
+		
 		//TODO pode aceitar ou recusar o pedido [Nao implementado para o EP1]
 		// ao lado da tela vai aparecer [ACEITAR] | [RECUSAR]
 		// dependendo da escolha, ira ser chamado algum metodo abaixo

@@ -2,7 +2,6 @@ package br.edu.coo2015.ep2.controller;
 
 import br.com.caelum.vraptor.ioc.Component;
 import br.com.caelum.vraptor.ioc.SessionScoped;
-import br.edu.coo2015.ep2.dao.UsuarioDao;
 import br.edu.coo2015.ep2.entity.Usuario;
 
 @Component

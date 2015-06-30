@@ -2,28 +2,31 @@ package br.edu.coo2015.ep2.entity;
 
 import java.io.Serializable;
 
-public class Livro implements Serializable {
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
+public class Livro {
 
 	private static final long serialVersionUID = 1L;
 
-	private int idUsuario;  // O livro so ira ser criado quando um usuario adicionar ele
+	@Id
+	@GeneratedValue
+	private Long id;
+	
+	private int idUsuario;
 	private String titulo;
 	private String autor; 
 	private String editora;
+	private long isbn;
 	
-	// Construtores
-	public Livro(String titulo, String autor, String editora, Usuario usuario) {
-		setTitulo(titulo);
-		setAutor(autor);
-		setEditora(editora);
-		setIdUsuario(usuario.getIdUsuario());
+	public int getIdUsuario() {
+		return idUsuario;
 	}
-	
-	public Livro(String titulo, String autor, String editora, int usuarioID) {
-		setTitulo(titulo);
-		setAutor(autor);
-		setEditora(editora);
-		setIdUsuario(usuarioID);
+
+	public void setIdUsuario(int idUsuario) {
+		this.idUsuario = idUsuario;
 	}
 
 	public String getTitulo() {
@@ -33,7 +36,7 @@ public class Livro implements Serializable {
 	public void setTitulo(String titulo) {
 		this.titulo = titulo;
 	}
-	
+
 	public String getAutor() {
 		return autor;
 	}
@@ -50,16 +53,14 @@ public class Livro implements Serializable {
 		this.editora = editora;
 	}
 
-	public int getIdUsuario() {
-		return idUsuario;
+	public long getIsbn() {
+		return isbn;
 	}
 
-	public void setIdUsuario(int idUsuario) {
-		this.idUsuario = idUsuario;
+	public void setIsbn(long isbn) {
+		this.isbn = isbn;
 	}
 
-	// sobrescrevemos o método "toString" para imprimir o objeto Livro no
-	// console
 	@Override
 	public String toString() {
 		return "Titulo: " + this.titulo + " Autor: " + this.autor + " Editora: " + this.editora;
