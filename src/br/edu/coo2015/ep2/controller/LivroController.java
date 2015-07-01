@@ -6,27 +6,41 @@ import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.Validator;
 import br.edu.coo2015.ep2.dao.LivroDaoHibernate;
+import br.edu.coo2015.ep2.entity.Emprestimo;
 import br.edu.coo2015.ep2.entity.Livro;
+import br.edu.coo2015.ep2.model.BibliotecaCompartilhadaFacade;
+import br.edu.coo2015.ep2.security.RestritoUsuarioCadastrado;
 
 @Resource
 public class LivroController {
 	
 	private final Result result;
-	private final Validator validator;
 	private final LivroDaoHibernate livroDaoHibernate;
+	private final UsuarioSession usuarioSession;
+	private final BibliotecaCompartilhadaFacade bibliotecaCompartilhadaFacade;
 	
-	public LivroController(LivroDaoHibernate livroDao, Result result, Validator validator){
+	public LivroController(UsuarioSession usuarioSession, LivroDaoHibernate livroDao, Result result, BibliotecaCompartilhadaFacade bibliotecaCompartilhadaFacade){
 		this.result = result;
-		this.validator = validator;
+		this.usuarioSession = usuarioSession;
 		this.livroDaoHibernate = livroDao;
+		this.bibliotecaCompartilhadaFacade = bibliotecaCompartilhadaFacade;
+		this.bibliotecaCompartilhadaFacade.setLivroDao(this.livroDaoHibernate);
 	}
 	
-	public List<Livro> lista() {
-        return livroDaoHibernate.listaTodos();
-    }
+	@RestritoUsuarioCadastrado
+	public void meusLivros(){
+		List<Livro> list = (List<Livro>) livroDaoHibernate.busca(usuarioSession.getUsuarioLogado().getId());
+		result.include("livros", list);
+	}
 	
-	public void pedir(Livro livro){
-		//fazPedido();
-		result.redirectTo(LivroController.class).lista();
+	@RestritoUsuarioCadastrado
+	public void adicionaLivro() {
+	}
+	
+	@RestritoUsuarioCadastrado
+	public void submeteLivro(Livro livro) {
+		livro.setIdUsuario(usuarioSession.getUsuarioLogado().getId());
+		livroDaoHibernate.adiciona(livro);
+		result.redirectTo("adicionaLivro?success");
 	}
 }

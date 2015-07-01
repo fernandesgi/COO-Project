@@ -21,19 +21,18 @@
 <body>
 	<div class="row">
 		<div class="col-sm-6 col-sm-offset-3">
-			<a href="adicionaLivro" type="button" class="btn btn-login">Adicionar Livro</a>
-		</div>
-
-		<div class="col-sm-6 col-sm-offset-3">
 			<a href="buscaLivro" type="button" class="btn btn-login">Buscar Livro</a>
 		</div>
-
+ 
 		<div class="col-sm-6 col-sm-offset-3">
 			<a href="meusLivros" type="button" class="btn btn-login">Ver Meus Livros</a>
 		</div>
-
+ 
 		<div class="col-sm-6 col-sm-offset-3">
 			<a href="../configuracoes/configuracoes" type="button" class="btn btn-login">Configurações</a>
+		</div>
+		<div class="col-sm-6 col-sm-offset-3">
+			<a href="../login/logout" type="button" class="btn btn-warning">Desconectar</a>
 		</div>
 	</div>
 </body>

@@ -23,7 +23,8 @@
 
 		<property name="show_sql">false</property>
 		<property name="format_sql">true</property>
-
+		
+		<mapping class="br.edu.coo2015.ep2.entity.Emprestimo" />
 		<mapping class="br.edu.coo2015.ep2.entity.Usuario" />
 		<mapping class="br.edu.coo2015.ep2.entity.Livro" />
 	</session-factory>

@@ -14,15 +14,20 @@
 <title>Busca Livro</title>
 </head>
 <body>
+	<form id="change-form" action="buscar" method="post" role="form">
 	<div class="form-group">
-		<input type="text" name="livro.ISBN" id="username" tabindex="1" class="form-control" placeholder="Insira o ISBN" required>
+		<input type="text" name="livro.titulo" id="titulo" tabindex="1" class="form-control" placeholder="Insira o Titulo" required>
+	</div>
+	<div class="form-group">
+		<input type="text" name="livro.autor" id="autor" tabindex="2" class="form-control" placeholder="Insira o Autor" required>
 	</div>
 	<div class="form-group">
 		<div class="row">
 			<div class="col-sm-6 col-sm-offset-3">
-				<input type="submit" name="livro.search" id="livro.search" tabindex="4" class="form-control btn btn-warning" value="Buscar">
+				<input type="submit" name="livrosearch" id="livro.search" tabindex="3" class="form-control btn btn-warning" value="Buscar">
 			</div>
 		</div>
 	</div>
+	</form>
 </body>
 </html>

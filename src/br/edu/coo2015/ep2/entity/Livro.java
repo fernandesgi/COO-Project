@@ -15,17 +15,21 @@ public class Livro {
 	@GeneratedValue
 	private Long id;
 	
-	private int idUsuario;
+	private long idUsuario;
 	private String titulo;
 	private String autor; 
 	private String editora;
 	private long isbn;
 	
-	public int getIdUsuario() {
+	public long getId() {
+		return id;
+	}
+	
+	public long getIdUsuario() {
 		return idUsuario;
 	}
 
-	public void setIdUsuario(int idUsuario) {
+	public void setIdUsuario(long idUsuario) {
 		this.idUsuario = idUsuario;
 	}
 

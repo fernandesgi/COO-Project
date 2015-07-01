@@ -32,7 +32,14 @@ public class LivroDaoHibernate implements Serializable  {
 				.add(Restrictions.eq("titulo", livro.getTitulo()))
 				.add(Restrictions.eq("autor", livro.getAutor())).uniqueResult();
 	}
-
+	
+	@SuppressWarnings("unchecked")
+	public List<Livro> busca(long id) {
+		return session.createCriteria(Livro.class)
+				.add(Restrictions.eq("idUsuario", id))
+				.list();
+	}
+	
 	@SuppressWarnings("unchecked")
 	public List<Livro> buscaPorAutor(String autor) {
 		return session.createCriteria(Livro.class)

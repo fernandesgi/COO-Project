@@ -26,24 +26,18 @@ public class LoginController {
 
 	private final UsuarioDaoHibernate usuarioDaoHibernate;
 
-	private final Validator validator;
-
-	public LoginController(Validator validator,
-			UsuarioDaoHibernate usuarioDaoHibernate, Result result,
+	public LoginController(UsuarioDaoHibernate usuarioDaoHibernate, Result result,
 			UsuarioSession usuarioSession,
 			GerenciadorDeAutenticacoes gerenciadorDeAutenticacoes) {
-		this.validator = validator;
 		this.result = result;
 		this.usuarioSession = usuarioSession;
 		this.gerenciadorDeAutenticacoes = gerenciadorDeAutenticacoes;
 		this.usuarioDaoHibernate = usuarioDaoHibernate;
 	}
 	
-	@RestritoUsuarioCadastrado
 	public void login() {
 	}	
 	
-	@RestritoUsuarioCadastrado
 	public void autentica(Usuario usuario) {
 		try {
 			usuario = gerenciadorDeAutenticacoes.autenticaUsuarioComum(usuario);
@@ -58,10 +52,10 @@ public class LoginController {
 	public void registra(Usuario usuario){
 		try {
 			usuarioDaoHibernate.adiciona(usuario);
-			result.redirectTo("index?success");
+			result.redirectTo("login?success");
 		} catch (Exception e) {
 			// TODO
-			result.redirectTo("index?erroEmail");
+			result.redirectTo("login?erroEmail");
 		}
 	}
 }

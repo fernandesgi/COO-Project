@@ -11,29 +11,40 @@
 <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/bootstrap/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/bootstrap/js/index.js"></script>
-<title>Altera Conta</title>
+<title>Meus Livros</title>
 </head>
 <body>
-	<form id="change-form" action="configuracoes?sucesso" method="post" role="form">
-		<div class="form-group">
-			<input type="password" name="senha" id="password" tabindex="1" class="form-control" placeholder="Senha atual" required>
-		</div>
-		<div class="form-group">
-			<input type="password" name="nova" id="password" tabindex="2" class="form-control" placeholder="Nova senha" required>
-		</div>
-		<div class="form-group">
-			<input type="password" name="confirmation" id="confirmpassword" tabindex="3" class="form-control" placeholder="Confirme a nova Senha" required>
-		</div>
-		<div class="form-group">
-			<div class="row">
-				<div class="col-sm-6 col-sm-offset-3">
-					<input type="submit" name="alterar" id="alterar" tabindex="4" class="form-control btn btn-register" value="Alterar">
-				</div>
-			</div>
-		</div>
+
+	<div class="row">
 		<div class="col-sm-6 col-sm-offset-3">
-			<a href="configuracoes" type="button" class="btn btn-warning">Voltar</a>
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Titulo</th>
+						<th>Autor</th>
+						<th>Editora</th>
+						<th>ISBN</th>
+					</tr>
+				</thead>
+				<tbody>
+					<c:forEach items="${livros}" var="livro">
+						<tr>
+						<td><c:out value="${livro.titulo}" /></td>
+						<td><c:out value="${livro.autor}" /></td>
+						<td><c:out value="${livro.editora}" /></td>
+						<td><c:out value="${livro.isbn}" /></td>
+						</tr>
+					</c:forEach>
+				</tbody>
+			</table>
 		</div>
-	</form>
+	</div>
+	<div class="col-sm-6 col-sm-offset-3">
+		<a href="adicionaLivro" type="button" class="btn btn-lg btn-info">Adicionar Livro</a>
+	</div>
+	
+	<div class="col-sm-6 col-sm-offset-3">
+		<a href="../home/home" type="button" class="btn btn-lg btn-info">Voltar</a>
+	</div>
 </body>
 </html>

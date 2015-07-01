@@ -7,6 +7,7 @@ import br.edu.coo2015.ep2.entity.Usuario;
 import br.edu.coo2015.ep2.model.AutenticacaoException;
 import br.edu.coo2015.ep2.model.BibliotecaCompartilhadaFacade;
 import br.edu.coo2015.ep2.model.GerenciadorDeAutenticacoes;
+import br.edu.coo2015.ep2.security.RestritoUsuarioCadastrado;
 
 @Resource
 public class ConfiguracoesController {
@@ -26,13 +27,15 @@ public class ConfiguracoesController {
 		this.gerenciadorDeAutenticacoes = gerenciadorDeAutenticacoes;
 		this.usuarioDaoHibernate = usuarioDaoHibernate;
 	}
-	
+	@RestritoUsuarioCadastrado
 	public void configuracoes() {
 	}
 	
+	@RestritoUsuarioCadastrado
 	public void alteraConta(){
 	}
 	
+	@RestritoUsuarioCadastrado
 	public void mudaSenha(String senha, String nova) {
 		Usuario logado = usuarioSession.getUsuarioLogado();
 		if(senha.equals(logado.getPassword())) {
@@ -45,17 +48,12 @@ public class ConfiguracoesController {
 		}
 	}
 	
+	@RestritoUsuarioCadastrado
 	public void deletaConta(){
-		
 	}
 	
-	public void deletaContaSucesso(Usuario usuario){
-		System.out.println("Usuario: " + usuario.getLogin() + "Senha: " + usuario.getPassword());
-		
-		try{
-			gerenciadorDeAutenticacoes.autenticaUsuarioComum(usuario);
-		} catch (AutenticacaoException e) {
-			result.redirectTo(IndexController.class).index();
-		}
+	@RestritoUsuarioCadastrado
+	public void deletaContaSucesso(String senha){
+		result.redirectTo(IndexController.class).index();
 	}
 }
